@@ -23,7 +23,4 @@ public class Item extends AuditEntity {
 
     @Column
     private String name;
-
-    @ManyToOne
-    private SyncedList syncedlist;
 }

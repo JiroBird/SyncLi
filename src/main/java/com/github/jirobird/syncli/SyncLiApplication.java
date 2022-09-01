@@ -15,9 +15,6 @@ import java.util.Date;
 @SpringBootApplication
 public class SyncLiApplication implements CommandLineRunner {
     @Autowired
-    ItemRepository itemRepository;
-
-    @Autowired
     SyncedListRepository syncedListRepository;
 
     public static void main(String[] args) {
@@ -32,21 +29,18 @@ public class SyncLiApplication implements CommandLineRunner {
 //        item1.setCreatedAt(new Date());
 //        item1.setUpdatedAt(new Date());
 //        item1.setName("шняга");
-//        item1.setSyncedlist(list);
 //        items.add(item1);
 //
 //        Item item2 = new Item();
 //        item2.setName("печенька");
 //        item2.setCreatedAt(new Date());
 //        item2.setUpdatedAt(new Date());
-//        item2.setSyncedlist(list);
 //        items.add(item2);
 //
-//        list.setItems(items);
+//        list.setItem(items);
 //        list.setName("что купить");
 //        list.setCreatedAt(new Date());
 //        list.setUpdatedAt(new Date());
-////        itemRepository.saveAllAndFlush(items);
 //        syncedListRepository.saveAndFlush(list);
     }
 }
