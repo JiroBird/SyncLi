@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="2022-09-01--1-1" author="jirobird">
+        <createTable tableName="syncedlist">
+            <column name="id" type="varchar(36)"/>
+            <column name="name" type="varchar(255)"/>
+            <column name="timestamp" type="bigint"/>
+            <column name="completed" type="boolean"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2022-09-01--1-2" author="jirobird">
+        <createTable tableName="syncedlist_to_item">
+            <column name="syncedlist_id" type="varchar(36)"/>
+            <column name="item_id" type="varchar(36)"/>
+        </createTable>
+
+
+        <addForeignKeyConstraint constraintName="fk_syncedlist_id"
+                                 baseTableName="syncedlist_to_item" baseColumnNames="syncedlist_id"
+                                 referencedTableName="syncedlist" referencedColumnNames="id"/>
+        <addForeignKeyConstraint constraintName="fk_item_id"
+                                 baseTableName="syncedlist_to_item" baseColumnNames="items_id"
+                                 referencedTableName="item" referencedColumnNames="id"/>
+
+    </changeSet>
+</databaseChangeLog>
