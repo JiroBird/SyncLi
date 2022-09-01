@@ -32,6 +32,6 @@ public class SyncedList extends AuditEntity  {
     @Column
     private boolean completed;
 
-    @OneToMany(mappedBy = "syncedlist")
+    @OneToMany(mappedBy = "syncedlist", cascade = {CascadeType.PERSIST})
     private List<Item> items = new ArrayList<>();
 }

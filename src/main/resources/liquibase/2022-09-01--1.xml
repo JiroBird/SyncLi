@@ -36,4 +36,10 @@
         <addNotNullConstraint tableName="syncedlist_item" columnName="syncedlist_id" columnDataType="varchar(36)"/>
         <addNotNullConstraint tableName="syncedlist_item" columnName="item_id"       columnDataType="varchar(36)"/>
     </changeSet>
+
+    <changeSet id="2022-09-01--1-5" author="jirobird">
+        <addColumn tableName="item">
+            <column name="syncedlist_id" type="varchar(36)"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
