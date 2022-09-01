@@ -7,6 +7,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,7 +16,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "syncedlist")
-public class SyncedList implements Serializable {
+public class SyncedList extends AuditEntity  {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
@@ -26,4 +28,10 @@ public class SyncedList implements Serializable {
 
     @Column
     private int timestamp;
+
+    @Column
+    private boolean completed;
+
+    @OneToMany(mappedBy = "syncedlist")
+    private List<Item> items = new ArrayList<>();
 }

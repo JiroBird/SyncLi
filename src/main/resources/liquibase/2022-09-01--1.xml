@@ -14,18 +14,26 @@
     </changeSet>
 
     <changeSet id="2022-09-01--1-2" author="jirobird">
-        <createTable tableName="syncedlist_to_item">
+        <createTable tableName="syncedlist_item">
             <column name="syncedlist_id" type="varchar(36)"/>
             <column name="item_id" type="varchar(36)"/>
         </createTable>
+    </changeSet>
 
+    <changeSet id="2022-09-01--1-3" author="jirobird">
+        <addUniqueConstraint tableName="syncedlist" columnNames="id"/>
+        <addUniqueConstraint tableName="item" columnNames="id"/>
 
         <addForeignKeyConstraint constraintName="fk_syncedlist_id"
-                                 baseTableName="syncedlist_to_item" baseColumnNames="syncedlist_id"
+                                 baseTableName="syncedlist_item" baseColumnNames="syncedlist_id"
                                  referencedTableName="syncedlist" referencedColumnNames="id"/>
         <addForeignKeyConstraint constraintName="fk_item_id"
-                                 baseTableName="syncedlist_to_item" baseColumnNames="items_id"
+                                 baseTableName="syncedlist_item" baseColumnNames="item_id"
                                  referencedTableName="item" referencedColumnNames="id"/>
+    </changeSet>
 
+    <changeSet id="2022-09-01--1-4" author="jirobird">
+        <addNotNullConstraint tableName="syncedlist_item" columnName="syncedlist_id" columnDataType="varchar(36)"/>
+        <addNotNullConstraint tableName="syncedlist_item" columnName="item_id"       columnDataType="varchar(36)"/>
     </changeSet>
 </databaseChangeLog>

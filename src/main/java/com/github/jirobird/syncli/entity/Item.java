@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "item")
-public class Item implements Serializable {
+public class Item extends AuditEntity {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
@@ -23,4 +23,7 @@ public class Item implements Serializable {
 
     @Column
     private String name;
+
+    @ManyToOne
+    private SyncedList syncedlist;
 }

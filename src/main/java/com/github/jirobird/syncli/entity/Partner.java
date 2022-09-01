@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "partners")
-public class Partner implements Serializable {
+public class Partner extends AuditEntity {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
