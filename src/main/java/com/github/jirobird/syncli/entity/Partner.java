@@ -6,7 +6,7 @@ import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -24,4 +24,6 @@ public class Partner extends AuditEntity {
     @Column private String name;
     @Column private String login;
     @Column private String password;
+    @Column private String token;
+    @Column Date tokenExpDate;
 }
