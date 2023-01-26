@@ -10,6 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @SpringBootApplication
@@ -28,10 +29,24 @@ public class SyncLiApplication implements CommandLineRunner {
     }
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
-        List<SyncedList> syncedLists = syncedListRepository.findAll();
-        List<Item> items = itemRepository.findAll();
 
-        System.out.println("");
+//        List<SyncedList> syncedLists = syncedListRepository.findAll();
+//        SyncedList list = syncedLists.get(0);
+//        List<Item> items = list.getItem();
+//        int c = items.size();
+//        List<Item> items = itemRepository.findAll();
+//
+//        SyncedList last = syncedLists.get(syncedLists.size() - 1);
+
+//        Item i = new Item();
+//        i.setName("Пыхтя");
+//        last.getItem().add(i);
+//
+//        syncedListRepository.saveAndFlush(last);
+//        syncedLists = syncedListRepository.findAll();
+//        items = itemRepository.findAll();
+//        System.out.println("");
     }
 }

@@ -6,9 +6,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PartnerDTO {
+public class PartnerDto {
 
-    private PartnerDTO() {
+    private PartnerDto() {
 
     }
 
@@ -17,8 +17,8 @@ public class PartnerDTO {
     private String token = null;
     private long expTime = -1;
 
-    public static PartnerDTO fromDB(Partner partner) {
-        PartnerDTO partnerDTO = new PartnerDTO();
+    public static PartnerDto fromDB(Partner partner) {
+        PartnerDto partnerDTO = new PartnerDto();
         partnerDTO.setLogin(partner.getLogin());
         partnerDTO.setName(partner.getName());
         partnerDTO.setToken(partner.getToken());

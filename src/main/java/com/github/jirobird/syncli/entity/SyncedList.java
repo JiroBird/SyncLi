@@ -6,7 +6,6 @@ import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +28,6 @@ public class SyncedList extends AuditEntity  {
     @Column
     private boolean completed;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     private List<Item> item = new ArrayList<>();
 }

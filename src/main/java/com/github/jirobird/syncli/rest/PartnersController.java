@@ -1,6 +1,6 @@
 package com.github.jirobird.syncli.rest;
 
-import com.github.jirobird.syncli.dto.PartnerDTO;
+import com.github.jirobird.syncli.dto.PartnerDto;
 import com.github.jirobird.syncli.entity.Partner;
 import com.github.jirobird.syncli.repository.PartnerRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,10 +28,10 @@ public class PartnersController {
     }
 
     @GetMapping("/v1/find_partner_by/{name}")
-    PartnerDTO findPartnerByName(@PathVariable String name) {
+    PartnerDto findPartnerByName(@PathVariable String name) {
         Partner partner = partnerRepository.findByLoginIgnoreCase(name);
         if (partner != null) {
-            PartnerDTO partnerDTO = PartnerDTO.fromDB(partner);
+            PartnerDto partnerDTO = PartnerDto.fromDB(partner);
             partnerDTO.setToken("");
             partnerDTO.setExpTime(-1);
             return partnerDTO;
